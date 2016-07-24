@@ -25,9 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>ninSpeed = 200;
-
-
+            <string>moveSpeed = 200; // Velocidade do ninja
+moveAcc = 0; // Aceleração
+vspd = 0; // Velocidade vertical
+grav = 0.2; // Gravidade
 </string>
           </argument>
         </arguments>
@@ -56,16 +57,13 @@ keyLeft = keyboard_check(vk_left);
 keyRight = keyboard_check(vk_right);
 
 
-moveSide = keyRight - keyLeft;
+move = keyRight - keyLeft;
 
-if(keyLeft){
-    //x -= ninSpeed;
-}
-else if(keyRight){
-    //x += ninSpeed;
+if(moveAcc &lt; 8){
+    moveAcc = move * (moveSpeed * (delta_time/1000000));
 }
 
-x += moveSide * (ninSpeed * (delta_time/1000000));
+x += moveAcc;
 </string>
           </argument>
         </arguments>
