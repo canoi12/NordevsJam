@@ -11,6 +11,13 @@
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <scripts name="Player">
+      <scripts name="states">
+        <script>scripts\scr_move_state.gml</script>
+      </scripts>
+    </scripts>
+  </scripts>
   <objects name="objects">
     <object>objects\obj_ninja</object>
     <object>objects\obj_ground</object>

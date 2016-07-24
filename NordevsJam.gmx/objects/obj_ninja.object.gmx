@@ -25,11 +25,38 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>moveSpeed = 400; // Velocidade do ninja
+            <string>maxSpeed = 10;
+moveSpeed = 100; // Velocidade do ninja
 moveAcc = 0; // Aceleração
 vspd = 0; // Velocidade vertical
 grav = 0.8; // Gravidade
 jumpForce = 12;
+
+state = scr_move_state;
+can_move = true;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>can_move = true;
 </string>
           </argument>
         </arguments>
@@ -60,40 +87,7 @@ keyRight = keyboard_check(vk_right);
 
 move = keyRight - keyLeft;
 
-if(place_meeting(x, y + 1, obj_ground)){
-    vspd = 0;
-    
-    if(keyJump){
-        vspd = -jumpForce;
-    }
-} else {
-    if(vspd &lt; 15){
-        vspd += grav;
-    }
-}
-
-moveAcc = move * (moveSpeed * (delta_time/1000000));
-if(move != 0){
-    
-}
-
-if(place_meeting(x + moveAcc, y, obj_ground)){
-    while(!place_meeting(x + sign(moveAcc), y, obj_ground)) {
-        x += sign(moveAcc);
-    }
-    moveAcc = 0;
-}
-
-x += moveAcc;
-
-if(place_meeting(x, y + vspd, obj_ground)){
-    while(!place_meeting(x, y + sign(vspd), obj_ground)){
-        y += sign(vspd);
-    }
-    vspd = 0;
-}
-
-y += vspd;
+script_execute(state);
 </string>
           </argument>
         </arguments>
