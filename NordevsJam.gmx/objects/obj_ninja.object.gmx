@@ -25,10 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>moveSpeed = 200; // Velocidade do ninja
+            <string>moveSpeed = 400; // Velocidade do ninja
 moveAcc = 0; // Aceleração
 vspd = 0; // Velocidade vertical
-grav = 0.2; // Gravidade
+grav = 0.8; // Gravidade
+jumpForce = 12;
 </string>
           </argument>
         </arguments>
@@ -51,7 +52,7 @@ grav = 0.2; // Gravidade
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>keyUp = keyboard_check(vk_up);
+            <string>keyJump = keyboard_check(vk_up);
 keyDown = keyboard_check(vk_down);
 keyLeft = keyboard_check(vk_left);
 keyRight = keyboard_check(vk_right);
@@ -59,11 +60,40 @@ keyRight = keyboard_check(vk_right);
 
 move = keyRight - keyLeft;
 
-if(moveAcc &lt; 8){
-    moveAcc = move * (moveSpeed * (delta_time/1000000));
+if(place_meeting(x, y + 1, obj_ground)){
+    vspd = 0;
+    
+    if(keyJump){
+        vspd = -jumpForce;
+    }
+} else {
+    if(vspd &lt; 15){
+        vspd += grav;
+    }
+}
+
+moveAcc = move * (moveSpeed * (delta_time/1000000));
+if(move != 0){
+    
+}
+
+if(place_meeting(x + moveAcc, y, obj_ground)){
+    while(!place_meeting(x + sign(moveAcc), y, obj_ground)) {
+        x += sign(moveAcc);
+    }
+    moveAcc = 0;
 }
 
 x += moveAcc;
+
+if(place_meeting(x, y + vspd, obj_ground)){
+    while(!place_meeting(x, y + sign(vspd), obj_ground)){
+        y += sign(vspd);
+    }
+    vspd = 0;
+}
+
+y += vspd;
 </string>
           </argument>
         </arguments>
