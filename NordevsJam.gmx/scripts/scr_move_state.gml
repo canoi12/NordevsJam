@@ -32,7 +32,8 @@ if(move > 0){
         if(keyboard_check_pressed(vk_up)){
             if(wall){
                 wall = false;
-                xscale = 0.5;
+                yscale = 1.33;
+                xscale = 0.67;
             }
             vspd = -jumpForce;
             move = -2;
@@ -48,7 +49,8 @@ else if(move < 0){
         if(keyboard_check_pressed(vk_up)){
             if(wall){
                 wall = false;
-                xscale = 0.5;
+                yscale = 1.33;
+                xscale = 0.67;
             }
             vspd = (-jumpForce);
             move = 2;
@@ -80,7 +82,8 @@ if(place_meeting(x, y + vspd, obj_ground)){
     if(!ground){
         ground = true;
         if(vspd >= 15){
-            yscale = 0.6;
+            yscale = 1.33;
+            xscale = 0.67;
         }
     }
     while(!place_meeting(x, y + sign(vspd), obj_ground)){
@@ -88,12 +91,6 @@ if(place_meeting(x, y + vspd, obj_ground)){
     }
     vspd = 0;
 }
-
-// Continuação da tentativa de animação dinâmica
-if(yscale < 1)
-    yscale += 0.1;
-else if(xscale < 1)
-    xscale += 0.1;
 
 
 y += vspd;

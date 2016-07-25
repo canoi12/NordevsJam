@@ -95,6 +95,9 @@ keyRight = keyboard_check(vk_right);
 move = keyRight - keyLeft;
 
 script_execute(state);
+
+xscale = Approach(xscale, 1, 0.05);
+yscale = Approach(yscale, 1, 0.05);
 </string>
           </argument>
         </arguments>
@@ -118,7 +121,7 @@ script_execute(state);
           <argument>
             <kind>1</kind>
             <string>draw_text(0, 0, delta_time/100000);
-draw_sprite_skew_ext(sprite_index, image_index, x, y, flip * xscale, yscale, image_angle, image_blend, image_alpha, image_xskew, image_yskew);
+draw_sprite_skew_ext(sprite_index, image_index, x, y + (24 - 24 * yscale) * 0.25, flip * xscale, yscale, image_angle, image_blend, image_alpha, image_xskew, image_yskew);
 </string>
           </argument>
         </arguments>
