@@ -34,9 +34,13 @@ jumpForce = 12;
 
 state = scr_move_state;
 ground = false;
+wall = false;
+flip = 1;
 
 image_xskew = 0;
 image_yskew = 0;
+xscale = 1;
+yscale = 1;
 </string>
           </argument>
         </arguments>
@@ -114,7 +118,7 @@ script_execute(state);
           <argument>
             <kind>1</kind>
             <string>draw_text(0, 0, delta_time/100000);
-draw_sprite_skew_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha, image_xskew, image_yskew);
+draw_sprite_skew_ext(sprite_index, image_index, x, y, flip * xscale, yscale, image_angle, image_blend, image_alpha, image_xskew, image_yskew);
 </string>
           </argument>
         </arguments>
