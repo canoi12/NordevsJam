@@ -7,6 +7,8 @@ if(place_meeting(x, y + 1, obj_ground)){
     
     if(keyJump){
         vspd = -jumpForce;
+        yscale = 1.33;
+        xscale = 0.67;
     }
 }
 // Gravidade 
@@ -20,8 +22,16 @@ else {
 // Parar aceleração
 if(move == 0){
     moveAcc *= 0.2;
+    sprite_index = spr_ninja_idle;
+    if(ground){
+        
+    }
 } else {
     flip = move;
+    sprite_index = spr_ninja_walk;
+    if(ground){
+        
+    }
 }
 
 // Walljumps
@@ -29,7 +39,7 @@ if(move > 0){
     if (place_meeting(x+1, y, obj_ground) && !place_meeting(x, y+1, obj_ground)){
         wall = true;
         vspd = vspd/2;
-        if(keyboard_check_pressed(vk_up)){
+        if(keyJumpPressed){
             if(wall){
                 wall = false;
                 yscale = 1.33;
@@ -46,7 +56,7 @@ else if(move < 0){
     if(place_meeting(x- 1, y, obj_ground) && !place_meeting(x, y+1, obj_ground)){
         wall = true;
         vspd = vspd/2;
-        if(keyboard_check_pressed(vk_up)){
+        if(keyJumpPressed){
             if(wall){
                 wall = false;
                 yscale = 1.33;
@@ -80,15 +90,15 @@ x += moveAcc;
 if(place_meeting(x, y + vspd, obj_ground)){
     // Tentativa de animação dinâmica
     if(!ground){
-        ground = true;
         if(vspd >= 15){
-            yscale = 1.33;
-            xscale = 0.67;
+            xscale = 1.33;
+            yscale = 0.67;
         }
     }
     while(!place_meeting(x, y + sign(vspd), obj_ground)){
         y += sign(vspd);
     }
+    ground = true;
     vspd = 0;
 }
 
