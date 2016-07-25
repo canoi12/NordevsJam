@@ -12,6 +12,7 @@
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
+    <script>scripts\draw_sprite_skew_ext.gml</script>
     <scripts name="Player">
       <scripts name="states">
         <script>scripts\scr_move_state.gml</script>

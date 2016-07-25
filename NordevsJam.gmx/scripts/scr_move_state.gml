@@ -7,9 +7,10 @@ if(place_meeting(x, y + 1, obj_ground)){
         vspd = -jumpForce;
     }
 } else {
-    if(vspd < 15){
+    if(vspd < 20){
         vspd += grav;
     }
+    ground = false;
 }
 
 if(move == 0){
@@ -51,10 +52,18 @@ if(place_meeting(x + moveAcc, y, obj_ground)){
 x += moveAcc;
 
 if(place_meeting(x, y + vspd, obj_ground)){
+    if(!ground){
+        ground = true;
+        if(vspd >= 15){
+            image_xscale = 1.4;
+        }
+    }
     while(!place_meeting(x, y + sign(vspd), obj_ground)){
         y += sign(vspd);
     }
     vspd = 0;
 }
+if(image_xscale > 1)
+    image_xscale -= 0.1;
 
 y += vspd;
