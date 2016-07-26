@@ -27,12 +27,14 @@
             <kind>1</kind>
             <string>image_speed = 0.5
 
-maxSpeed = 10;
-moveSpeed = 100; // Velocidade do ninja
+maxSpeed = 12;
+moveSpeed = 50; // Velocidade do ninja
 moveAcc = 0; // Aceleração
 vspd = 0; // Velocidade vertical
 grav = 1; // Gravidade
 jumpForce = 12;
+dashCoolDown = 0;
+dashSpeed = 0;
 
 state = scr_move_state;
 ground = false;
@@ -70,6 +72,7 @@ keyDown = keyboard_check(vk_down);
 keyLeft = keyboard_check(vk_left);
 keyRight = keyboard_check(vk_right);
 keyJumpPressed = keyboard_check_pressed(vk_up);
+keyDash = keyboard_check_pressed(ord("X"));
 
 
 move = keyRight - keyLeft;
@@ -107,6 +110,8 @@ if(ground)
 else
     //draw_sprite_skew_ext(sprite_index, image_index, x, y, flip * xscale, yscale, image_angle, image_blend, image_alpha, image_xskew, image_yskew);
     draw_sprite_ext(sprite_index, image_index, x, y, flip * xscale, yscale, image_angle, image_blend, 1);
+    
+draw_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, true);
 </string>
           </argument>
         </arguments>

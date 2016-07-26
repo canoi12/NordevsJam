@@ -4,7 +4,7 @@
 // Pulo
 if(place_meeting(x, y + 1, obj_ground)){
     vspd = 0;
-    
+    ground = true;
     if(keyJump){
         vspd = -jumpForce;
         yscale = 1.33;
@@ -13,24 +13,26 @@ if(place_meeting(x, y + 1, obj_ground)){
 }
 // Gravidade 
 else {
+    ground = false;
     if(vspd < 20){
         vspd += grav;
     }
     ground = false;
+    if(!ground && !wall){
+        sprite_index = spr_ninja_fall;
+    }
 }
 
 // Parar aceleração
 if(move == 0){
-    moveAcc *= 0.2;
-    sprite_index = spr_ninja_idle;
-    if(ground){
-        
+    moveAcc *= 0.75;
+    if(ground && !wall){
+       sprite_index = spr_ninja_idle; 
     }
 } else {
     flip = move;
-    sprite_index = spr_ninja_walk;
-    if(ground){
-        
+    if(ground && !wall){
+        sprite_index = spr_ninja_walk;
     }
 }
 
@@ -38,41 +40,56 @@ if(move == 0){
 if(move > 0){
     if (place_meeting(x+1, y, obj_ground) && !place_meeting(x, y+1, obj_ground)){
         wall = true;
-        vspd = vspd/2;
+        vspd *= 0.7;
         if(keyJumpPressed){
             if(wall){
-                wall = false;
                 yscale = 1.33;
                 xscale = 0.67;
             }
+            wall = false;
             vspd = -jumpForce;
-            move = -2;
+            move = -4;
         }
     } else {
         wall = false;
     }
 }
 else if(move < 0){
-    if(place_meeting(x- 1, y, obj_ground) && !place_meeting(x, y+1, obj_ground)){
+    if(place_meeting(x-1, y, obj_ground) && !place_meeting(x, y+1, obj_ground)){
         wall = true;
-        vspd = vspd/2;
+        vspd *= 0.7;
         if(keyJumpPressed){
             if(wall){
-                wall = false;
                 yscale = 1.33;
                 xscale = 0.67;
             }
+             wall = false;
             vspd = (-jumpForce);
-            move = 2;
+            move = 4;
         }
     } else {
         wall = false;
     }
 }
 
+if(wall)
+    sprite_index = spr_ninja_wall;
+    
+dashCoolDown -= 0.1;
+if(dashCoolDown <= 0){
+    dashSpeed = 0;
+} 
+if(keyDash && dashCoolDown <= 0){
+    dashSpeed = 10;
+    dashCoolDown = 0.6;
+    xscale = 1.33;
+    yscale = 0.67;
+} 
+
+moveAcc += move * (moveSpeed * (delta_time/1000000)) + (sign(move)*dashSpeed);
 // Aceleração
-if(abs(moveAcc) < maxSpeed){
-    moveAcc += move * (moveSpeed * (delta_time/1000000));
+if(abs(moveAcc) >= (maxSpeed + dashSpeed)){
+    moveAcc = move * (maxSpeed) + (sign(move)*dashSpeed);
 }
 
 // Colisão Horizontal
