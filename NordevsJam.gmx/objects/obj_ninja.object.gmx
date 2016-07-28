@@ -45,6 +45,35 @@ image_xskew = 0;
 image_yskew = 0;
 xscale = 1;
 yscale = 1;
+
+// Partículas
+ps = part_system_create();
+
+pt = part_type_create();
+part_type_shape(pt, pt_shape_disk);
+part_type_size(pt, .1, 0.2, 0, 0);
+part_type_speed(pt, 0.5, 1, 0, 0);
+part_type_orientation(pt, 0, 0, 0, 0, 1);
+part_type_direction(pt, 0, 180, 0, 0);
+part_type_colour2(pt, c_red, c_lime);
+part_type_life(pt, 5, 10);
+
+pe = part_emitter_create(ps);
+
+
+// Quantidade de imagem que terá no Motion Trail
+trail_length = 8;
+
+// Inicializando as variáveis
+for(i = 0; i &lt; trail_length; i++){
+    xx[i] = x;
+    yy[i] = y;
+    xxscale[i] = xscale;
+    yyscale[i] = yscale;
+    anim[i] = sprite_index;
+    frame[i] = image_index;
+    motion_alpha[i] = 2/i;
+}
 </string>
           </argument>
         </arguments>
@@ -81,6 +110,23 @@ script_execute(state);
 
 xscale = Approach(xscale, 1, 0.05);
 yscale = Approach(yscale, 1, 0.05);
+
+// Motion trail
+for(var i = (trail_length-1); i &gt; 0; i--){
+    xx[i] = xx[i - 1];
+    yy[i] = yy[i - 1];
+    xxscale[i] = xxscale[i - 1];
+    yyscale[i] = yyscale[i - 1]; 
+    anim[i] = anim[i - 1];
+    frame[i] = frame[i - 1];
+}
+
+xx[0] = x;
+yy[0] = y;
+xxscale[0] = xscale;
+yyscale[0] = yscale;
+anim[0] = sprite_index;
+frame[0] = image_index;
 </string>
           </argument>
         </arguments>
@@ -111,7 +157,13 @@ else
     //draw_sprite_skew_ext(sprite_index, image_index, x, y, flip * xscale, yscale, image_angle, image_blend, image_alpha, image_xskew, image_yskew);
     draw_sprite_ext(sprite_index, image_index, x, y, flip * xscale, yscale, image_angle, image_blend, 1);
     
-draw_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, true);
+//draw_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, true);
+
+if(dashSpeed &gt; 0){
+    for(var i = 0; i &lt; trail_length; i++){
+        draw_sprite_ext(anim[i], frame[i], xx[i], yy[i], flip * xxscale[i], yyscale[i], image_angle, image_blend, motion_alpha[i]);
+    }
+}
 </string>
           </argument>
         </arguments>

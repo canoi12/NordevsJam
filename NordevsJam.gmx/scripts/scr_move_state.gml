@@ -17,9 +17,18 @@ else {
     if(vspd < 20){
         vspd += grav;
     }
-    ground = false;
     if(!ground && !wall){
         sprite_index = spr_ninja_fall;
+    }
+    if(wall){
+        if(flip == -1){
+            part_emitter_region(ps, pe, x-16, x-16, y, y+24, ps_shape_rectangle, ps_distr_linear);
+            part_emitter_burst(ps, pe, pt, 1);
+        }
+        else {
+            part_emitter_region(ps, pe, x+16, x+16, y, y+24, ps_shape_rectangle, ps_distr_linear);
+            part_emitter_burst(ps, pe, pt, 1);
+        }
     }
 }
 
@@ -71,12 +80,15 @@ else if(move < 0){
         wall = false;
     }
 }
+else {
+    wall = false;
+}
 
 if(wall)
     sprite_index = spr_ninja_wall;
     
 dashCoolDown -= 0.1;
-if(dashCoolDown <= 0){
+if(dashCoolDown <= 0 && (ground || wall)){
     dashSpeed = 0;
 } 
 if(keyDash && dashCoolDown <= 0){
@@ -106,12 +118,17 @@ x += moveAcc;
 // Colisão Vertical
 if(place_meeting(x, y + vspd, obj_ground)){
     // Tentativa de animação dinâmica
-    if(!ground){
+    //if(!ground){
         if(vspd >= 15){
             xscale = 1.33;
             yscale = 0.67;
         }
-    }
+        if(vspd >= 0){
+            part_emitter_region(ps, pe, x-16, x+16, y+40, y+40, ps_shape_rectangle, ps_distr_linear);
+            part_emitter_burst(ps, pe, pt, 10);
+        }
+        
+    //}
     while(!place_meeting(x, y + sign(vspd), obj_ground)){
         y += sign(vspd);
     }
