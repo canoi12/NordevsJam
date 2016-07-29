@@ -34,7 +34,7 @@ else {
 
 // Parar aceleração
 if(move == 0){
-    moveAcc *= 0.75;
+    moveAcc *= 0.1;
     if(ground && !wall){
        sprite_index = spr_ninja_idle; 
     }
@@ -92,7 +92,7 @@ if(dashCoolDown <= 0 && (ground || wall)){
     dashSpeed = 0;
 } 
 if(keyDash && dashCoolDown <= 0){
-    dashSpeed = 10;
+    dashSpeed = 4;
     dashCoolDown = 0.6;
     xscale = 1.33;
     yscale = 0.67;
@@ -135,6 +135,11 @@ if(place_meeting(x, y + vspd, obj_ground)){
     ground = true;
     vspd = 0;
 }
+
+if(keyLeft && move > 0)
+    move = 0;
+if(keyRight && move < 0)
+    move = 0;
 
 
 y += vspd;
