@@ -28,6 +28,7 @@
     <object>objects\obj_ground</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\room2</room>
     <room>rooms\room1</room>
     <room>rooms\rm_teste</room>
   </rooms>
