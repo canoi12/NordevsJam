@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_speed = 0.5
+            <string>image_speed = 0.5;
 
 maxSpeed = 12;
 moveSpeed = 50; // Velocidade do ninja
@@ -35,6 +35,7 @@ grav = 1; // Gravidade
 jumpForce = 12;
 dashCoolDown = 0;
 dashSpeed = 0;
+attack = false;
 
 state = scr_move_state;
 ground = false;
@@ -102,6 +103,7 @@ keyLeft = keyboard_check(vk_left);
 keyRight = keyboard_check(vk_right);
 keyJumpPressed = keyboard_check_pressed(vk_up);
 keyDash = keyboard_check_pressed(ord("X"));
+keyAttack = keyboard_check_pressed(ord("Z"));
 
 
 move = keyRight - keyLeft;
@@ -127,6 +129,31 @@ xxscale[0] = xscale;
 yyscale[0] = yscale;
 anim[0] = sprite_index;
 frame[0] = image_index;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(attack){
+    attack = false;
+}
 </string>
           </argument>
         </arguments>
