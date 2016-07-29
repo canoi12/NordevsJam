@@ -1,5 +1,6 @@
 /// scr_move_state()
 
+// Ataques
 if(keyAttack && !attack){
     image_index = 0;
     if(ground && !wall && dashSpeed <= 0 && move == 0){
@@ -106,7 +107,7 @@ if(dashCoolDown <= 0 && (ground || wall)){
     dashSpeed = 0;
 } 
 if(keyDash && dashCoolDown <= 0){
-    dashSpeed = 4;
+    dashSpeed = dashMaxSpeed;
     dashCoolDown = 0.6;
     xscale = 1.33;
     yscale = 0.67;

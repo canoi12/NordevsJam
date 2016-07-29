@@ -6,14 +6,24 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\spr_ninja_idle</sprite>
-    <sprite>sprites\spr_ninja_wall</sprite>
-    <sprite>sprites\spr_ninja_walk</sprite>
-    <sprite>sprites\spr_ninja_fall</sprite>
+    <sprites name="Ninja">
+      <sprite>sprites\spr_ninja_idle</sprite>
+      <sprite>sprites\spr_ninja_wall</sprite>
+      <sprite>sprites\spr_ninja_fall</sprite>
+      <sprite>sprites\spr_ninja_walk</sprite>
+      <sprite>sprites\spr_ninja_idle_attack</sprite>
+      <sprite>sprites\spr_ninja_dash_attack</sprite>
+      <sprite>sprites\spr_ninja_jump_attack</sprite>
+    </sprites>
+    <sprites name="Enemies">
+      <sprites name="Archer">
+        <sprite>sprites\spr_archer_idle</sprite>
+        <sprite>sprites\spr_archer_attack</sprite>
+        <sprite>sprites\spr_arrow</sprite>
+        <sprite>sprites\spr_archer_damage</sprite>
+      </sprites>
+    </sprites>
     <sprite>sprites\spr_ground</sprite>
-    <sprite>sprites\spr_ninja_idle_attack</sprite>
-    <sprite>sprites\spr_ninja_dash_attack</sprite>
-    <sprite>sprites\spr_ninja_jump_attack</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -25,15 +35,18 @@
       </scripts>
     </scripts>
     <script>scripts\Approach.gml</script>
+    <script>scripts\scr_gravity.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_ninja</object>
     <object>objects\obj_ground</object>
+    <object>objects\obj_archer</object>
+    <object>objects\obj_arrow</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_teste</room>
     <room>rooms\room2</room>
     <room>rooms\room1</room>
-    <room>rooms\rm_teste</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
