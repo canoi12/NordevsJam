@@ -11,7 +11,9 @@
     <sprite>sprites\spr_ninja_walk</sprite>
     <sprite>sprites\spr_ninja_fall</sprite>
     <sprite>sprites\spr_ground</sprite>
-    <sprite>sprites\spr_ninja_attack</sprite>
+    <sprite>sprites\spr_ninja_idle_attack</sprite>
+    <sprite>sprites\spr_ninja_dash_attack</sprite>
+    <sprite>sprites\spr_ninja_jump_attack</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>

@@ -1,11 +1,25 @@
 /// scr_move_state()
 
+if(keyAttack && !attack){
+    image_index = 0;
+    if(ground && !wall && dashSpeed <= 0 && move == 0){
+        attack = true;
+        sprite_index = spr_ninja_idle_attack;
+    }
+    else if(!ground && !wall && dashSpeed <= 0){
+        attack = true;
+        sprite_index = spr_ninja_jump_attack;
+    } else if(!wall && dashSpeed > 0){
+        attack = true;
+        sprite_index = spr_ninja_dash_attack;        
+    }
+}
 
 // Pulo
 if(place_meeting(x, y + 1, obj_ground)){
     vspd = 0;
     ground = true;
-    if(keyJump){
+    if(keyJump && !attack){
         vspd = -jumpForce;
         yscale = 1.33;
         xscale = 0.67;
@@ -17,7 +31,7 @@ else {
     if(vspd < 20){
         vspd += grav;
     }
-    if(!ground && !wall){
+    if(!ground && !wall && !attack){
         sprite_index = spr_ninja_fall;
     }
     if(wall){
@@ -35,12 +49,12 @@ else {
 // Parar aceleração
 if(move == 0){
     moveAcc *= 0.1;
-    if(ground && !wall){
+    if(ground && !wall && !attack){
        sprite_index = spr_ninja_idle; 
     }
 } else {
     flip = move;
-    if(ground && !wall){
+    if(ground && !wall && !attack){
         sprite_index = spr_ninja_walk;
     }
 }
