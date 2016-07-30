@@ -1,5 +1,9 @@
 /// scr_move_state()
 
+if(moveAcc != 0){
+    flip = sign(moveAcc);
+}
+
 // Ataques
 if(keyAttack && !attack){
     image_index = 0;
@@ -14,6 +18,10 @@ if(keyAttack && !attack){
         attack = true;
         sprite_index = spr_ninja_dash_attack;        
     }
+}
+
+if(sprite_index == spr_ninja_jump_attack && ground){
+    attack = false;
 }
 
 // Pulo
@@ -54,50 +62,57 @@ if(move == 0){
        sprite_index = spr_ninja_idle; 
     }
 } else {
-    flip = move;
     if(ground && !wall && !attack){
         sprite_index = spr_ninja_walk;
     }
 }
 
 // Walljumps
-if(move > 0){
-    if (place_meeting(x+1, y, obj_ground) && !place_meeting(x, y+1, obj_ground)){
+//if(move > 0){
+    if (place_meeting(x+1, y, obj_ground) && !ground){
         wall = true;
         vspd *= 0.7;
+        if(keyDown){
+            wall = false;
+            move = -1;
+        }
+        if(keyJumpPressed){
+            if(wall){
+                yscale = 1.33;
+                xscale = 0.67;
+            }
+            vspd = -jumpForce;
+            move = -4;
+            wall = false;
+        }
+    } /*else {
+        wall = false;
+    }*/
+//}
+//else if(move < 0){
+    else if(place_meeting(x-1, y, obj_ground) && !ground){
+        wall = true;
+        vspd *= 0.7;
+        if(keyDown){
+            wall = false;
+            move = 1;
+        }
         if(keyJumpPressed){
             if(wall){
                 yscale = 1.33;
                 xscale = 0.67;
             }
             wall = false;
-            vspd = -jumpForce;
-            move = -4;
-        }
-    } else {
-        wall = false;
-    }
-}
-else if(move < 0){
-    if(place_meeting(x-1, y, obj_ground) && !place_meeting(x, y+1, obj_ground)){
-        wall = true;
-        vspd *= 0.7;
-        if(keyJumpPressed){
-            if(wall){
-                yscale = 1.33;
-                xscale = 0.67;
-            }
-             wall = false;
             vspd = (-jumpForce);
             move = 4;
         }
     } else {
         wall = false;
-    }
-}
+    }    
+/*}
 else {
     wall = false;
-}
+}*/
 
 if(wall)
     sprite_index = spr_ninja_wall;
@@ -107,6 +122,9 @@ if(dashCoolDown <= 0 && (ground || wall)){
     dashSpeed = 0;
 } 
 if(keyDash && dashCoolDown <= 0){
+    if(dashSpeed <= 0 && !ground){
+        vspd = -jumpForce/2;
+    }
     dashSpeed = dashMaxSpeed;
     dashCoolDown = 0.6;
     xscale = 1.33;

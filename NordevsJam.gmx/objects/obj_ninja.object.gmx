@@ -98,17 +98,17 @@ for(i = 0; i &lt; trail_length; i++){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>keyJump = keyboard_check(vk_up);
-keyDown = keyboard_check(vk_down);
-keyLeft = keyboard_check(vk_left);
-keyRight = keyboard_check(vk_right);
-keyJumpPressed = keyboard_check_pressed(vk_up);
-keyDash = keyboard_check_pressed(ord("X"));
-keyAttack = keyboard_check_pressed(ord("Z"));
+            <string>keyJump = keyboard_check(vk_up) || gamepad_button_check(0, gp_face1);
+keyDown = keyboard_check(vk_down) || gamepad_axis_value(0, gp_axislv) &gt; 0.4;
+keyLeft = keyboard_check(vk_left) || gamepad_axis_value(0, gp_axislh) &lt; -0.4;
+keyRight = keyboard_check(vk_right) || gamepad_axis_value(0, gp_axislh) &gt; 0.4;
+keyJumpPressed = keyboard_check_pressed(vk_up) || gamepad_button_check_pressed(0, gp_face1);
+keyDash = keyboard_check_pressed(ord("X"))     || gamepad_button_check_pressed(0, gp_shoulderlb) || gamepad_button_check_pressed(0, gp_shoulderrb);
+keyAttack = keyboard_check_pressed(ord("Z"))   || gamepad_button_check_pressed(0, gp_face3);
 
-
-move = keyRight - keyLeft;
-
+if(sprite_index != spr_ninja_idle_attack &amp;&amp; sprite_index != spr_ninja_dash_attack &amp;&amp; sprite_index != spr_ninja_jump_attack){
+    move = keyRight - keyLeft;
+}
 script_execute(state);
 
 xscale = Approach(xscale, 1, 0.05);
