@@ -23,6 +23,8 @@
         <sprite>sprites\spr_archer_damage</sprite>
       </sprites>
       <sprite>sprites\spr_patroller</sprite>
+      <sprite>sprites\spr_kabuki_idle</sprite>
+      <sprite>sprites\spr_kabuki</sprite>
     </sprites>
     <sprite>sprites\spr_ground</sprite>
     <sprite>sprites\spr_ground_invisivel</sprite>
@@ -42,6 +44,10 @@
       <script>scripts\patroller_move_right_state.gml</script>
       <script>scripts\patroller_move_left_state.gml</script>
     </scripts>
+    <scripts name="Kabuki States">
+      <script>scripts\kabuki_idle_state.gml</script>
+      <script>scripts\kabuki_chase_state.gml</script>
+    </scripts>
   </scripts>
   <objects name="objects">
     <object>objects\obj_ninja</object>
@@ -50,11 +56,13 @@
     <object>objects\obj_arrow</object>
     <object>objects\obj_ground_invisivel</object>
     <object>objects\Patroller</object>
+    <object>objects\Kabuki</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_teste</room>
+    <room>rooms\room4</room>
     <room>rooms\room2</room>
     <room>rooms\room1</room>
+    <room>rooms\rm_teste</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
