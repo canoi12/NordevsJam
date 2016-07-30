@@ -284,6 +284,7 @@
     <instance objName="Patroller" x="1346" y="458" name="inst_462245D2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Patroller" x="626" y="298" name="inst_404D007B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Patroller" x="1730" y="266" name="inst_12C6DD49" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Kabuki" x="1848" y="278" name="inst_F9EA746D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
