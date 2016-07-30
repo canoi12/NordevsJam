@@ -588,6 +588,9 @@
     <instance objName="obj_ground" x="4480" y="672" name="inst_CDC059FC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ground" x="4288" y="672" name="inst_D0EE7A5E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ground" x="4256" y="672" name="inst_4239580F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Kabuki" x="992" y="384" name="inst_215AE379" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Kabuki" x="1824" y="448" name="inst_5D1375DA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Kabuki" x="2752" y="416" name="inst_925F7FDD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
