@@ -118,7 +118,8 @@ dashCoolDown -= 0.1;
 if(dashCoolDown <= 0 && (ground || wall)){
     dashSpeed = 0;
 } 
-if(keyDash && dashCoolDown <= 0){
+if(keyDash && dashCoolDown <= 0 && can_dash){
+    can_dash = false;
     dashSpeed = dashMaxSpeed;
     dashCoolDown = 0.6;
     if(!ground){
@@ -136,6 +137,7 @@ if(abs(moveAcc) >= (maxSpeed + dashSpeed)){
 
 // Colisão Horizontal
 if(place_meeting(x + moveAcc, y, obj_ground)){
+    can_dash = true;
     while(!place_meeting(x + sign(moveAcc), y, obj_ground)) {
         x += sign(moveAcc);
     }
@@ -152,6 +154,7 @@ x += moveAcc;
 
 // Colisão Vertical
 if(place_meeting(x, y + vspd, obj_ground)){
+    can_dash = true;
     // Tentativa de animação dinâmica
     //if(!ground){
         if(vspd >= 15){

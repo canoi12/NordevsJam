@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>image_speed = 0.3;
+vida = 100;
 
 maxSpeed = 12;
 moveSpeed = 50; // Velocidade do ninja
@@ -38,6 +39,7 @@ dashSpeed = 0;
 dashMaxSpeed = 4;
 attack = false;
 key_down = 0;
+can_dash = true;
 
 damage = false;
 knock = 0;
@@ -172,6 +174,14 @@ xxscale[0] = xscale;
 yyscale[0] = yscale;
 anim[0] = sprite_index;
 frame[0] = image_index;
+
+vida -= 0.1;
+if(vida &lt;= 0){
+    vida = 0;
+    room_restart();
+}
+
+x = clamp(x, 32, room_width-32);
 </string>
           </argument>
         </arguments>
@@ -201,6 +211,7 @@ frame[0] = image_index;
     //vspd = -jumpForce/2;
     //y -= 1;
     //dashSpeed = 0;
+    vida -= 5;
 }
 </string>
           </argument>
@@ -249,14 +260,15 @@ frame[0] = image_index;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_text(0, 0, sprite_width);
+            <string>draw_text(view_xview[0], view_yview[0], vida);
+
 if(ground)
     //draw_sprite_skew_ext(sprite_index, image_index, x, y + (16 - 16 * yscale) * 1, flip * xscale, yscale, image_angle, image_blend, image_alpha, image_xskew, image_yskew);
     draw_sprite_ext(sprite_index, image_index, x, y + (32 - 32 * yscale) * 1, flip * xscale, yscale, image_angle, image_blend, alpha);
 else
     //draw_sprite_skew_ext(sprite_index, image_index, x, y, flip * xscale, yscale, image_angle, image_blend, image_alpha, image_xskew, image_yskew);
     draw_sprite_ext(sprite_index, image_index, x, y, flip * xscale, yscale, image_angle, image_blend, alpha);
-    
+
 //draw_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, true);
 
 if(dashSpeed &gt; 0){
