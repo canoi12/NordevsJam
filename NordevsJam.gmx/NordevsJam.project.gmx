@@ -60,7 +60,10 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\room4</room>
+<<<<<<< HEAD
     <room>rooms\room3</room>
+=======
+>>>>>>> d57b99adf3e0114b2a6526a969c1ae2f11b719fd
     <room>rooms\room2</room>
     <room>rooms\room1</room>
     <room>rooms\rm_teste</room>
