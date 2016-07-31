@@ -33,7 +33,10 @@
     <sprite>sprites\spr_platform</sprite>
     <sprite>sprites\sprite17</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\bg_room1</background>
+    <background>background\bg_room2</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\draw_sprite_skew_ext.gml</script>
@@ -66,6 +69,8 @@
     <object>objects\obj_ninja_attack_mask</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_bgroom1</room>
+    <room>rooms\rm_bgroom2</room>
     <room>rooms\room4</room>
     <room>rooms\room3</room>
     <room>rooms\room2</room>
