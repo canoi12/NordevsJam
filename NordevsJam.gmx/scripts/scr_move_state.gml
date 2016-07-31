@@ -142,9 +142,14 @@ if(place_meeting(x + moveAcc, y, obj_ground)){
     while(!place_meeting(x + sign(moveAcc), y, obj_ground)) {
         x += sign(moveAcc);
     }
+    knock = 0;
     moveAcc = 0;
 }
 
+if(damage){
+    moveAcc = knock;
+    sprite_index = spr_ninja_damage;
+}
 
 x += moveAcc;
 
