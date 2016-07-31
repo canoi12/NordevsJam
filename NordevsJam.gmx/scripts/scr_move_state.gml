@@ -16,7 +16,7 @@ if(keyAttack && !attack){
     }
 }
 if(attack){
-    if(image_index >= 2 && !instance_exists(obj_ninja_attack_mask)){
+    if(image_index >= 2){
         var mask = instance_create(x, y, obj_ninja_attack_mask);
         mask.image_xscale = flip;
     }

@@ -36,6 +36,7 @@ damage = false;
 attack = false;
 flip = 1;
 image_speed = 0.4;
+vida = 2;
 </string>
           </argument>
         </arguments>
@@ -88,7 +89,7 @@ scr_gravity();
 if(distance_to_object(obj_ninja) &lt;= 150 &amp;&amp; !attack &amp;&amp; 
     (obj_ninja.y &gt;= y-16 &amp;&amp; obj_ninja.y &lt;= y+16)){
     sprite_index = spr_archer_attack;
-    flip = sign(obj_ninja.x - x);
+    image_xscale = sign(obj_ninja.x - x);
     image_index = 0;
     attack = true;
 } else if(distance_to_object(obj_ninja) &gt; 50 &amp;&amp; !damage &amp;&amp; !attack){
@@ -125,32 +126,9 @@ yscale = Approach(yscale, 1, 0.05);
     image_speed = 0;
     image_index = 3;
     alarm[0] = room_speed;
-    var bullet = instance_create(x + (flip * 8), y + 12, obj_arrow);
-    bullet.speed = flip * 12;
+    var bullet = instance_create(x + (image_xscale * 8), y + 12, obj_arrow);
+    bullet.speed = image_xscale * 12;
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>draw_sprite_ext(sprite_index, image_index, x, y, flip * xscale, yscale, image_angle, image_blend, image_alpha);
 </string>
           </argument>
         </arguments>
