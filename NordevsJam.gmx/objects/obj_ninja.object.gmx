@@ -84,6 +84,10 @@ for(i = 0; i &lt; trail_length; i++){
     frame[i] = image_index;
     motion_alpha[i] = 2/i;
 }
+
+if(room == rm_bgroom1){
+    audio_play_sound(bgm_fase, 1, 1);
+}
 </string>
           </argument>
         </arguments>
@@ -288,7 +292,8 @@ x = clamp(x, 32, room_width-32);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_text(view_xview[0], view_yview[0], vida);
+            <string>//draw_text(view_xview[0], view_yview[0], vida);
+draw_rectangle_colour(view_xview[0] + 10,view_yview[0] + 10,view_xview[0]+10+floor(vida), view_yview[0] + 20, c_white, c_white, c_white, c_white, 0);
 
 if(ground)
     //draw_sprite_skew_ext(sprite_index, image_index, x, y + (16 - 16 * yscale) * 1, flip * xscale, yscale, image_angle, image_blend, image_alpha, image_xskew, image_yskew);

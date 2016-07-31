@@ -4,7 +4,9 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\bgm_fase</sound>
+  </sounds>
   <sprites name="sprites">
     <sprites name="Ninja">
       <sprite>sprites\spr_ninja_idle</sprite>
@@ -70,12 +72,12 @@
     <object>objects\obj_platform</object>
     <object>objects\obj_Enemy</object>
     <object>objects\obj_ninja_attack_mask</object>
-    <object>objects\obj_teste_shader</object>
+    <object>objects\obj_BarraVida</object>
     <object>objects\obj_thorn</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_bgroom2</room>
     <room>rooms\rm_bgroom1</room>
+    <room>rooms\rm_bgroom2</room>
     <room>rooms\room4</room>
     <room>rooms\room3</room>
     <room>rooms\room2</room>

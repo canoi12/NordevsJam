@@ -76,7 +76,7 @@ k = 0;
             <kind>1</kind>
             <string>if(vida &lt;= 0){
     instance_destroy();
-    obj_ninja.vida += 10;
+    obj_ninja.vida += 30;
 }
 if(damage){
     k += 0.8;
