@@ -197,10 +197,10 @@ frame[0] = image_index;
             <string>if(!damage &amp;&amp; !attack &amp;&amp; !other.damage){
     damage = true;
     alarm[0] = room_speed/2;
-    knock = (sign(x-other.x))*6;
-    vspd = -jumpForce/2;
-    y -= 1;
-    dashSpeed = 0;
+    //knock = (sign(x-other.x))*6;
+    //vspd = -jumpForce/2;
+    //y -= 1;
+    //dashSpeed = 0;
 }
 </string>
           </argument>

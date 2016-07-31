@@ -137,8 +137,8 @@ if(place_meeting(x + moveAcc, y, obj_ground)){
 }
 
 if(damage){
-    moveAcc = knock;
-    sprite_index = spr_ninja_damage;
+    //moveAcc = knock;
+    //sprite_index = spr_ninja_damage;
 }
 
 x += moveAcc;
