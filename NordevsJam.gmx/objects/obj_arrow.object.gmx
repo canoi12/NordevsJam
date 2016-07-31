@@ -75,7 +75,8 @@ i = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(destroy){
+            <string>event_inherited();
+if(destroy){
     i += 0.8;
     alpha = sin(i);
 }

@@ -13,6 +13,7 @@
       <sprite>sprites\spr_ninja_walk</sprite>
       <sprite>sprites\spr_ninja_idle_attack</sprite>
       <sprite>sprites\spr_ninja_dash_attack</sprite>
+      <sprite>sprites\spr_ninja_attack_mask</sprite>
       <sprite>sprites\spr_ninja_jump_attack</sprite>
       <sprite>sprites\spr_ninja_damage</sprite>
     </sprites>
@@ -62,6 +63,7 @@
     <object>objects\Kabuki</object>
     <object>objects\obj_platform</object>
     <object>objects\obj_Enemy</object>
+    <object>objects\obj_ninja_attack_mask</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room4</room>

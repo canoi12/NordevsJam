@@ -15,6 +15,12 @@ if(keyAttack && !attack){
         sprite_index = spr_ninja_dash_attack;        
     }
 }
+if(attack){
+    if(image_index >= 2 && !instance_exists(obj_ninja_attack_mask)){
+        var mask = instance_create(x, y, obj_ninja_attack_mask);
+        mask.image_xscale = flip;
+    }
+}
 
 // Pulo
 if(place_meeting(x, y + 1, obj_ground)){
@@ -78,12 +84,10 @@ if(move == 0){
             vspd = -jumpForce;
             move = -4;
         }
-    } else {
-        wall = false;
     }
 //}
 //else if(move < 0){
-    if(place_meeting(x-1, y, obj_ground) && !place_meeting(x, y+1, obj_ground)){
+    else if(place_meeting(x-1, y, obj_ground) && !place_meeting(x, y+1, obj_ground)){
         wall = true;
         vspd *= 0.7;
         if(keyDown){
@@ -117,6 +121,9 @@ if(dashCoolDown <= 0 && (ground || wall)){
 if(keyDash && dashCoolDown <= 0){
     dashSpeed = dashMaxSpeed;
     dashCoolDown = 0.6;
+    if(!ground){
+        vspd = -jumpForce/2;
+    } 
     xscale = 1.33;
     yscale = 0.67;
 } 

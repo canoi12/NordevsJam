@@ -82,7 +82,8 @@ image_speed = 0.4;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_gravity();
+            <string>event_inherited();
+scr_gravity();
 
 if(distance_to_object(obj_ninja) &lt;= 150 &amp;&amp; !attack &amp;&amp; 
     (obj_ninja.y &gt;= y-16 &amp;&amp; obj_ninja.y &lt;= y+16)){

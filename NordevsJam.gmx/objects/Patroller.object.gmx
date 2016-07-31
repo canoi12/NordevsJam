@@ -52,7 +52,10 @@ state = choose(patroller_move_right_state, patroller_move_left_state);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>script_execute(state);
+            <string>event_inherited();
+if(!damage){
+    script_execute(state);
+}
 </string>
           </argument>
         </arguments>
