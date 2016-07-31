@@ -74,8 +74,8 @@
     <object>objects\obj_thorn</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_bgroom1</room>
     <room>rooms\rm_bgroom2</room>
+    <room>rooms\rm_bgroom1</room>
     <room>rooms\room4</room>
     <room>rooms\room3</room>
     <room>rooms\room2</room>

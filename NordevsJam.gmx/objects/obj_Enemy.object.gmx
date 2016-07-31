@@ -108,7 +108,7 @@ if(damage){
             <kind>1</kind>
             <string>if(!damage){
     damage = true;
-    vida -= 1;
+    vida -= 3;
     alarm[1] = room_speed/2;
 }
 </string>
