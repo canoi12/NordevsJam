@@ -61,10 +61,14 @@ if(move == 0){
 }
 
 // Walljumps
-if(move > 0){
+//if(move > 0){
     if (place_meeting(x+1, y, obj_ground) && !place_meeting(x, y+1, obj_ground)){
         wall = true;
         vspd *= 0.7;
+        if(keyDown){
+            wall = false;
+            move = -1;
+        }
         if(keyJumpPressed){
             if(wall){
                 yscale = 1.33;
@@ -77,11 +81,15 @@ if(move > 0){
     } else {
         wall = false;
     }
-}
-else if(move < 0){
+//}
+//else if(move < 0){
     if(place_meeting(x-1, y, obj_ground) && !place_meeting(x, y+1, obj_ground)){
         wall = true;
         vspd *= 0.7;
+        if(keyDown){
+            wall = false;
+            move = -1;
+        }
         if(keyJumpPressed){
             if(wall){
                 yscale = 1.33;
@@ -94,10 +102,10 @@ else if(move < 0){
     } else {
         wall = false;
     }
-}
+/*}
 else {
     wall = false;
-}
+}*/
 
 if(wall)
     sprite_index = spr_ninja_wall;
@@ -125,8 +133,13 @@ if(place_meeting(x + moveAcc, y, obj_ground)){
         x += sign(moveAcc);
     }
     moveAcc = 0;
+    knock = 0;
 }
 
+if(damage){
+    moveAcc = knock;
+    sprite_index = spr_ninja_damage;
+}
 
 x += moveAcc;
 

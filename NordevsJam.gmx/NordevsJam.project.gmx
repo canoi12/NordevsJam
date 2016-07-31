@@ -14,6 +14,7 @@
       <sprite>sprites\spr_ninja_idle_attack</sprite>
       <sprite>sprites\spr_ninja_dash_attack</sprite>
       <sprite>sprites\spr_ninja_jump_attack</sprite>
+      <sprite>sprites\spr_ninja_damage</sprite>
     </sprites>
     <sprites name="Enemies">
       <sprites name="Archer">
@@ -29,6 +30,7 @@
     <sprite>sprites\spr_ground</sprite>
     <sprite>sprites\spr_ground_invisivel</sprite>
     <sprite>sprites\spr_platform</sprite>
+    <sprite>sprites\sprite17</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -59,6 +61,7 @@
     <object>objects\Patroller</object>
     <object>objects\Kabuki</object>
     <object>objects\obj_platform</object>
+    <object>objects\obj_Enemy</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room4</room>
