@@ -31,7 +31,7 @@
     <sprite>sprites\spr_ground</sprite>
     <sprite>sprites\spr_ground_invisivel</sprite>
     <sprite>sprites\spr_platform</sprite>
-    <sprite>sprites\sprite17</sprite>
+    <sprite>sprites\spr_thorn</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_room1</background>
@@ -71,6 +71,7 @@
     <object>objects\obj_Enemy</object>
     <object>objects\obj_ninja_attack_mask</object>
     <object>objects\obj_teste_shader</object>
+    <object>objects\obj_thorn</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_bgroom1</room>
