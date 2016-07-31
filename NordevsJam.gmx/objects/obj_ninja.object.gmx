@@ -175,7 +175,7 @@ yyscale[0] = yscale;
 anim[0] = sprite_index;
 frame[0] = image_index;
 
-vida -= 0.1;
+vida -= 0.5;
 if(vida &lt;= 0){
     vida = 0;
     room_restart();
@@ -208,7 +208,7 @@ x = clamp(x, 32, room_width-32);
     damage = true;
     sprite_index = spr_ninja_damage;
     alarm[0] = room_speed/2;
-    vida -= 5;
+    vida = 0;
 }
 </string>
           </argument>
