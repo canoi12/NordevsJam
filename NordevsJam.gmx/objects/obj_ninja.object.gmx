@@ -87,7 +87,11 @@ for(i = 0; i &lt; trail_length; i++){
 
 if(room == rm_bgroom1){
     audio_play_sound(bgm_fase, 1, 1);
+    
+} else {
+    audio_play_sound(bgm_fase2, 1, 1);
 }
+audio_master_gain(0.3);
 </string>
           </argument>
         </arguments>
@@ -183,6 +187,11 @@ vida -= 0.5;
 if(vida &lt;= 0){
     vida = 0;
     room_restart();
+    audio_stop_all();
+}
+
+if(y &gt; room_height){
+    vida = 0;
 }
 
 x = clamp(x, 32, room_width-32);
