@@ -41,6 +41,10 @@
   <backgrounds name="background">
     <background>background\bg_room1</background>
     <background>background\bg_room2</background>
+    <background>background\background2</background>
+    <background>background\background3</background>
+    <background>background\background4</background>
+    <background>background\background5</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -82,10 +86,10 @@
   <rooms name="rooms">
     <room>rooms\rm_bgroom1</room>
     <room>rooms\rm_bgroom2</room>
-    <room>rooms\room4</room>
-    <room>rooms\room3</room>
-    <room>rooms\room2</room>
     <room>rooms\room1</room>
+    <room>rooms\room3</room>
+    <room>rooms\room4</room>
+    <room>rooms\room2</room>
     <room>rooms\rm_teste</room>
   </rooms>
   <help>
