@@ -7,7 +7,6 @@
   <sounds name="sound">
     <sound>sound\bgm_fase</sound>
     <sound>sound\bgm_fase2</sound>
-    <sound>sound\fx_sword</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Ninja">
@@ -68,6 +67,9 @@
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_dying.shader</shader>
   </shaders>
+  <fonts name="fonts">
+    <font>fonts\font0</font>
+  </fonts>
   <objects name="objects">
     <object>objects\obj_ninja</object>
     <object>objects\obj_ground</object>
@@ -82,14 +84,16 @@
     <object>objects\obj_BarraVida</object>
     <object>objects\obj_thorn</object>
     <object>objects\obj_nextLevel</object>
+    <object>objects\obj_mensagemFinal</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_bgroom1</room>
     <room>rooms\rm_bgroom2</room>
-    <room>rooms\room1</room>
     <room>rooms\room3</room>
     <room>rooms\room4</room>
     <room>rooms\room2</room>
+    <room>rooms\rm_final</room>
+    <room>rooms\room1</room>
     <room>rooms\rm_teste</room>
   </rooms>
   <help>
