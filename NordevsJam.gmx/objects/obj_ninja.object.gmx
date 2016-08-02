@@ -89,6 +89,7 @@ if(room == rm_bgroom1){
     audio_play_sound(bgm_fase, 1, 1);
     
 } else {
+    audio_stop_sound(bgm_fase);
     audio_play_sound(bgm_fase2, 1, 1);
 }
 audio_master_gain(0.3);

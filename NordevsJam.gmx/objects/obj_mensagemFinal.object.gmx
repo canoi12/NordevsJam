@@ -29,6 +29,7 @@
 draw_set_font(font0);
 draw_text(320, 120, "Obrigado por jogar!")
 draw_text_ext(320,200, "Infelizmente não conseguimos executar todas as ideias que pensamos. Mas fiquem ligados para novas atualizações.", 50, 480)
+draw_text(320, 300, "Creditos: @DanielFelipePTA, @canoi12 e @FilipeBrizolara")
 draw_set_halign(fa_left);
 </string>
           </argument>
